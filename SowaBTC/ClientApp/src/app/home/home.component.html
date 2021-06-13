@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Sowa labs - test</h1>
+  <section>
+    <h3>Part 1</h3>
+    <highcharts-chart
+      *ngIf="chartOptions"
+      [Highcharts]="Highcharts"
+      [options]="chartOptions"
+      style="width: 100%; height: 400px; display: block"
+    ></highcharts-chart>
+  </section>
+  <section>
+    <h3>Part 2</h3>
+    <input
+      type="number"
+      [(ngModel)]="buyAmount"
+      #ctrl="ngModel"
+      (ngModelChange)="calculateTotalPriceForBuyAmount()"
+      style="margin-bottom: 1rem"
+    />
+    <p>
+      Total price: <b> {{ totalPriceForBuyAmount }}</b>
+    </p>
+    <p *ngIf="errorText">
+      <i>{{ errorText }}</i>
+    </p>
+  </section>
+</div>
